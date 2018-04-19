@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="312.0" prefWidth="641.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proz.communicator.controller.Controller">
+    <children>
+        <VBox prefHeight="312.0" prefWidth="354.0">
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Label fx:id="shyLabel" layoutX="124.0" layoutY="90.0" text="Don't be so shy...">
+                            <font>
+                                <Font name="Arial Italic" size="13.0" />
+                            </font>
+                     <textFill>
+                        <LinearGradient endX="0.7026378896882495" endY="0.44844124700239807" startY="0.1774580335731415">
+                           <stops>
+                              <Stop color="#32b5dd" />
+                              <Stop color="#f298c9" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                        </Label>
+                        <TabPane fx:id="tabPane" layoutY="-1.0" prefHeight="199.0" prefWidth="354.0" tabClosingPolicy="SELECTED_TAB">
+                     <tabs>
+                     </tabs></TabPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="120.0" prefWidth="423.0">
+                    <children>
+                        <Button fx:id="sendButton" disable="true" layoutX="11.0" layoutY="75.0" mnemonicParsing="false" onAction="#sendButtonClicked" prefHeight="27.0" prefWidth="161.0" text="Send!">
+                            <textFill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="#26f0e7" />
+                                        <Stop color="#26f0e7" offset="0.0074487895716946" />
+                                        <Stop color="#91ab4a" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </textFill>
+                        </Button>
+                        <ToggleButton fx:id="sendWithEnterToggleButton" layoutX="178.0" layoutY="75.0" mnemonicParsing="false" onAction="#sendWithEnterToggleButtonClicked" prefHeight="27.0" prefWidth="161.0" text="Send with Enter">
+                            <textFill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop color="#26f0e7" />
+                                        <Stop color="#26f0e7" offset="0.0074487895716946" />
+                                        <Stop color="#91ab4a" offset="1.0" />
+                                    </stops>
+                                </LinearGradient>
+                            </textFill>
+                        </ToggleButton>
+                        <TextArea fx:id="messageInput" disable="true" text="You are not connected..." onKeyPressed="#enterKeyPressed" layoutX="10.0" layoutY="14.0" prefHeight="52.0" prefWidth="331.0" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <AnchorPane prefHeight="312.0" prefWidth="302.0">
+            <children>
+                <Label alignment="CENTER" contentDisplay="CENTER" layoutX="12.0" layoutY="24.0" prefHeight="36.0" prefWidth="249.0" text="New Connection:">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                            <stops>
+                                <Stop color="#26f0e7" />
+                                <Stop color="#26f0e7" offset="0.0074487895716946" />
+                                <Stop color="#a248b0" offset="1.0" />
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                </Label>
+                <GridPane layoutX="19.0" layoutY="67.0" prefHeight="138.0" prefWidth="249.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="115.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="107.0" minWidth="10.0" prefWidth="99.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label prefHeight="36.0" prefWidth="110.0" text="Host port:" textAlignment="CENTER" textFill="#75bbd6" GridPane.rowIndex="1" />
+                        <Label prefHeight="36.0" prefWidth="110.0" text="Host address:" textAlignment="CENTER" textFill="#75bbd6" />
+                        <Label prefHeight="36.0" prefWidth="131.0" text="Connection name:" textAlignment="CENTER" textFill="#75bbd6" GridPane.rowIndex="2" />
+                        <TextField fx:id="hostAddressInput" GridPane.columnIndex="1" />
+                        <TextField fx:id="hostPortInput" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="connectionNameInput" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    </children>
+                </GridPane>
+                <Button fx:id="connectButton" layoutX="14.0" layoutY="205.0" mnemonicParsing="false" onAction="#connectButtonClicked" prefHeight="27.0" prefWidth="249.0" text="Connect!">
+                    <textFill>
+                        <RadialGradient centerX="0.47198879551820727" centerY="0.5911270983213429" radius="0.6213017751479291">
+                            <stops>
+                                <Stop color="#25f244" />
+                                <Stop color="#25f244" offset="0.0074487895716946" />
+                                <Stop color="#55c5e4" offset="1.0" />
+                            </stops>
+                        </RadialGradient>
+                    </textFill>
+                </Button>
+                <Line endX="100.0" layoutX="1.0" layoutY="156.0" rotate="90.0" scaleX="1.55" scaleY="2.0" scaleZ="2.0" startX="-100.0" stroke="#bcbaba" />
+            <Line endX="100.0" layoutX="153.0" layoutY="248.0" scaleX="1.5" scaleY="2.0" scaleZ="2.0" startX="-100.0" stroke="#bcbaba" />
+            <Button fx:id="stopButton" disable="true" layoutX="204.0" layoutY="268.0" mnemonicParsing="false" onAction="#stopButtonClicked" prefHeight="17.0" prefWidth="59.0" text="Stop">
+               <textFill>
+                  <LinearGradient endX="0.25659472422062346" endY="1.0">
+                     <stops>
+                        <Stop color="#33a0cc" />
+                        <Stop color="#48e4b5" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            <Label layoutX="13.0" layoutY="273.0" text="Port" textFill="#75bbd6" />
+            <TextField fx:id="portInput" layoutX="60.0" layoutY="268.0" prefHeight="27.0" prefWidth="59.0" />
+            <Button fx:id="listenButton" layoutX="137.0" layoutY="268.0" mnemonicParsing="false" onAction="#listenButtonClicked" prefHeight="17.0" prefWidth="59.0" text="Listen">
+               <textFill>
+                  <LinearGradient endX="0.25659472422062346" endY="1.0">
+                     <stops>
+                        <Stop color="#33a0cc" />
+                        <Stop color="#48e4b5" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Button>
+            </children>
+        </AnchorPane>
+    </children>
+</HBox>
